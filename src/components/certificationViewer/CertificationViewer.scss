@@ -1,0 +1,142 @@
+@import "../../_globalColor";
+
+.certification-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  
+  p {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+.certification-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: opacity 0.3s ease-in-out;
+  
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.certification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  h1 {
+    color: white;
+    font-size: 1.5rem;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .close-button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: white;
+      color: black;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.certification-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  
+  .certification-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .certification-header {
+    padding: 15px 20px;
+    
+    h1 {
+      font-size: 1.2rem;
+    }
+    
+    .close-button {
+      width: 35px;
+      height: 35px;
+      font-size: 1.2rem;
+    }
+  }
+  
+  .certification-image-container {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certification-header {
+    padding: 10px 15px;
+    
+    h1 {
+      font-size: 1rem;
+    }
+    
+    .close-button {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+    }
+  }
+}

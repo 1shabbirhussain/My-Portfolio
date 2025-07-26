@@ -48,6 +48,25 @@
   color: $textColor !important;
 }
 
+.flutter-badge {
+  display: inline-block;
+  margin-left: 10px;
+  animation: flutter-pulse 2s ease-in-out infinite;
+}
+
+.flutter-greeting-icon {
+  vertical-align: middle;
+}
+
+@keyframes flutter-pulse {
+  0%, 100% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
 .greeting-text-p {
   font-size: 30px;
   line-height: 40px;

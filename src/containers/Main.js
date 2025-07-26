@@ -12,6 +12,7 @@ import Footer from "../components/footer/Footer";
 import Talks from "./talks/Talks";
 import Podcast from "./podcast/Podcast";
 import Education from "./education/Education";
+import Contact from "./contact/Contact";
 import ScrollToTopButton from "./topbutton/Top";
 import Twitter from "./twitter-embed/twitter";
 import Profile from "./profile/Profile";
@@ -63,6 +64,7 @@ const Main = () => {
             <Talks />
             <Twitter />
             <Podcast />
+            <Contact />
             <Profile />
             <Footer />
             <ScrollToTopButton />

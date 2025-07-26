@@ -1,5 +1,6 @@
 import React from "react";
 import "./SoftwareSkill.scss";
+import FlutterIcon from "../FlutterIcon/FlutterIcon";
 import {skillsSection} from "../../portfolio";
 
 export default function SoftwareSkill() {
@@ -14,7 +15,11 @@ export default function SoftwareSkill() {
                 className="software-skill-inline"
                 name={skills.skillName}
               >
-                <i className={skills.fontAwesomeClassname}></i>
+                {skills.skillName === "flutter" ? (
+                  <FlutterIcon size={50} />
+                ) : (
+                  <i className={skills.fontAwesomeClassname}></i>
+                )}
                 <p>{skills.skillName}</p>
               </li>
             );

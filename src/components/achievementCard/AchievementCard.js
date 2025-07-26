@@ -2,13 +2,22 @@ import React from "react";
 import "./AchievementCard.scss";
 
 export default function AchievementCard({cardInfo, isDark}) {
-  function openUrlInNewTab(url, name) {
+  function openUrlInNewTab(url, name, type, cardTitle, certificateImage) {
     if (!url) {
       console.log(`URL for ${name} not found`);
       return;
     }
-    var win = window.open(url, "_blank");
-    win.focus();
+    
+    // If it's a certificate type, open the certification viewer
+    if (type === "certificate" && certificateImage) {
+      const certificationUrl = `/certification.html?cert=${encodeURIComponent(certificateImage)}&title=${encodeURIComponent(cardTitle)}`;
+      var win = window.open(certificationUrl, "_blank", "width=1200,height=800,scrollbars=yes,resizable=yes");
+      win.focus();
+    } else {
+      // For regular URLs, open normally
+      var win = window.open(url, "_blank");
+      win.focus();
+    }
   }
 
   return (
@@ -36,7 +45,7 @@ export default function AchievementCard({cardInfo, isDark}) {
               className={
                 isDark ? "dark-mode certificate-tag" : "certificate-tag"
               }
-              onClick={() => openUrlInNewTab(v.url, v.name)}
+              onClick={() => openUrlInNewTab(v.url, v.name, v.type, cardInfo.title, cardInfo.certificateImage)}
             >
               {v.name}
             </span>
